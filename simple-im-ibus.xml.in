@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- filename: simpleinputmethod.xml -->
+<component>
+	<name>com.simple.InputMethod</name>
+	<description>Simple InputMethod Component</description>
+	<exec>@CMAKE_INSTALL_LIBEXECDIR@/ibus-simpleim/@PROJECT_NAME@ --ibus</exec>
+	<version>1.0</version>
+	<author>hanteng &lt;hantengwy@163.com&gt;</author>
+	<license>GPL</license>
+	<homepage>https://gitee.com/hantengc</homepage>
+	<textdomain>ibus-simpleim</textdomain>
+	<engines>
+		<engine>
+			<name>SimpleInputMethod</name>
+			<language>zh</language>
+			<license>GPL</license>
+			<author>hanteng &lt;hantengwy@163.com&gt;</author>
+			<icon>@CMAKE_INSTALL_FULL_DATADIR@/ibus-simpleim/icons/simpleim.png</icon>
+			<layout>default</layout>
+			<longname>simpleinputmethod</longname>
+			<description>Simple InputMethod Engine</description>
+		</engine>
+	</engines>
+</component>
