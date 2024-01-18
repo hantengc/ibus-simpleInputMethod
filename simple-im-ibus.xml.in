@@ -9,6 +9,7 @@
 	<license>GPL</license>
 	<homepage>https://gitee.com/hantengc</homepage>
 	<textdomain>ibus-simpleim</textdomain>
+	<symbol>&#x7B80i;</symbol>
 	<engines>
 		<engine>
 			<name>SimpleInputMethod</name>
