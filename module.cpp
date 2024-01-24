@@ -4,26 +4,26 @@
 #include <glib-object.h>
 #include <glib/gstdio.h>
 
-SimpleModuleIMIBus::SimpleModuleIMIBus(IBusEngine *engine) : engine_(engine) {}
+SimpleIMForIBus::SimpleIMForIBus(IBusEngine *engine) : engine_(engine) {}
 
-SimpleModuleIMIBus::~SimpleModuleIMIBus() {}
+SimpleIMForIBus::~SimpleIMForIBus() {}
 
-void SimpleModuleIMIBus::keyEvent(IBusEngine *engine, guint key_val, guint key_code, guint modifiers)
+void SimpleIMForIBus::keyEvent(IBusEngine *engine, guint key_val, guint key_code, guint modifiers)
 {
     g_printf("func = %s  line = %d\n", __FUNCTION__, __LINE__);
 }
 
-void SimpleModuleIMIBus::activate(IBusEngine *engine)
+void SimpleIMForIBus::activate(IBusEngine *engine)
 {
     g_printf("func = %s  line = %d\n", __FUNCTION__, __LINE__);
 }
 
-void SimpleModuleIMIBus::deactivate(IBusEngine *engine)
+void SimpleIMForIBus::deactivate(IBusEngine *engine)
 {
     g_printf("func = %s  line = %d\n", __FUNCTION__, __LINE__);
 }
 
-void SimpleModuleIMIBus::reset(IBusEngine *engine)
+void SimpleIMForIBus::reset(IBusEngine *engine)
 {
     g_printf("func = %s  line = %d\n", __FUNCTION__, __LINE__);
 }

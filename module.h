@@ -3,11 +3,11 @@
 
 #include <ibus.h>
 
-class SimpleModuleIMIBus : public IBusEngine
+class SimpleIMForIBus : public IBusEngine
 {
 public:
-    explicit SimpleModuleIMIBus(IBusEngine *engine = nullptr);
-    virtual ~SimpleModuleIMIBus();
+    explicit SimpleIMForIBus(IBusEngine *engine = nullptr);
+    virtual ~SimpleIMForIBus();
     void keyEvent(IBusEngine *engine, guint key_val, guint key_code, guint modifiers);
     void activate(IBusEngine *engine);
     void deactivate(IBusEngine *engine);

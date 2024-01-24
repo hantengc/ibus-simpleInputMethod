@@ -12,16 +12,15 @@ struct IBusModuleEngineClass
 };
 
 static IBusEngineClass *parent_class = NULL;
-static SimpleModuleIMIBus *module_ = nullptr;
+static SimpleIMForIBus *module_ = nullptr;
 
-/* functions prototype */
 static void ibus_simpleim_engine_class_init(IBusModuleEngineClass *);
 static void ibus_simpleim_engine_init(IBusEngine *engine);
 static void ibus_simpleim_engine_destroy(IBusEngine *engine);
 static gboolean ibus_simpleim_engine_process_key_event(IBusEngine *engine,
-                                            guint keyval,
-                                            guint keycode,
-                                            guint modifiers);
+                                                       guint keyval,
+                                                       guint keycode,
+                                                       guint modifiers);
 static void ibus_simpleim_engine_focus_in(IBusEngine *engine);
 static void ibus_simpleim_engine_focus_out(IBusEngine *engine);
 static void ibus_simpleim_engine_reset(IBusEngine *engine);
@@ -33,12 +32,12 @@ static void ibus_simpleim_engine_page_down(IBusEngine *engine);
 static void ibus_simpleim_engine_cursor_up(IBusEngine *engine);
 static void ibus_simpleim_engine_cursor_down(IBusEngine *engine);
 static void ibus_simpleim_engine_property_activate(IBusEngine *engine,
-                                        const gchar *prop_name,
-                                        guint prop_state);
+                                                   const gchar *prop_name,
+                                                   guint prop_state);
 static void ibus_simpleim_engine_candidate_clicked(IBusEngine *engine,
-                                        guint index,
-                                        guint button,
-                                        guint state);
+                                                   guint index,
+                                                   guint button,
+                                                   guint state);
 
 static GType ibus_simpleim_engine_get_type()
 {
@@ -50,7 +49,7 @@ static GType ibus_simpleim_engine_get_type()
         (GClassInitFunc)ibus_simpleim_engine_class_init,
         NULL,
         NULL,
-        sizeof(SimpleModuleIMIBus),
+        sizeof(SimpleIMForIBus),
         0,
         (GInstanceInitFunc)ibus_simpleim_engine_init,
     };
@@ -58,7 +57,7 @@ static GType ibus_simpleim_engine_get_type()
     if (type == 0)
     {
         type = g_type_register_static(IBUS_TYPE_ENGINE,
-                                      "SimpleModuleIMIBus",
+                                      "SimpleIMForIBus",
                                       &type_info,
                                       (GTypeFlags)0);
     }
@@ -93,7 +92,7 @@ static void ibus_simpleim_engine_class_init(IBusModuleEngineClass *klass)
 static void ibus_simpleim_engine_init(IBusEngine *engine)
 {
     ibus_warning("func = %s  line = %d\n", __FUNCTION__, __LINE__);
-    module_ = new SimpleModuleIMIBus(engine);
+    module_ = new SimpleIMForIBus(engine);
 }
 
 static void ibus_simpleim_engine_destroy(IBusEngine *engine)
@@ -103,9 +102,9 @@ static void ibus_simpleim_engine_destroy(IBusEngine *engine)
 }
 
 static gboolean ibus_simpleim_engine_process_key_event(IBusEngine *engine,
-                                            guint keyval,
-                                            guint keycode,
-                                            guint modifiers)
+                                                       guint keyval,
+                                                       guint keycode,
+                                                       guint modifiers)
 {
     module_->keyEvent(engine, keyval, keycode, modifiers);
     return false;
@@ -156,8 +155,8 @@ static void ibus_simpleim_engine_cursor_down(IBusEngine *engine)
 }
 
 static void ibus_simpleim_engine_property_activate(IBusEngine *engine,
-                                        const gchar *prop_name,
-                                        guint prop_state)
+                                                   const gchar *prop_name,
+                                                   guint prop_state)
 {
     (void)(engine);
     (void)(prop_name);
@@ -165,9 +164,9 @@ static void ibus_simpleim_engine_property_activate(IBusEngine *engine,
 }
 
 static void ibus_simpleim_engine_candidate_clicked(IBusEngine *engine,
-                                        guint index,
-                                        guint button,
-                                        guint state)
+                                                   guint index,
+                                                   guint button,
+                                                   guint state)
 {
     (void)(engine);
     (void)(index);
